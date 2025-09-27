@@ -30,8 +30,7 @@ def ics_out(out,time):
             f.write("DTEND;VALUE=DATE:{}\n".format((time+timedelta(days=1)).strftime("%Y%m%d")))
             #f.write("CREATED:{}T000001\n".format(time.strftime("%Y%m%d")))
             f.write("SUMMARY:{}{}日,{},{}\n".format(tiangan_wenben[out[0]],dizhi_wenben[out[1]],tiangan_suhxing[out[0]],dizhi_suxing[out[1]]))
-            f.write("END:VEVENT\n")
-            f.write("END:VCALENDAR\n\n")
+            f.write("END:VEVENT\n\n")
 
 def main():
     start_date = date(date.today().year, 2, 1)
@@ -41,6 +40,8 @@ def main():
         out = (shuxing(current_date))
         ics_out(out,current_date)
         current_date += timedelta(days=1)
+    with open("shuxing.ics","a",encoding="utf-8") as f:
+        f.write("END:VCALENDAR\n\n")
 
 if __name__ == "__main__":
     main()
