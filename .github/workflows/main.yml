@@ -35,7 +35,7 @@ jobs:
         with:
           tag_name: latest
           name: "Latest Build"
-          files: path/to/your/file.txt
+          files: shuxing.ics
           overwrite_files: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
