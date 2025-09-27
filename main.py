@@ -29,7 +29,7 @@ def ics_out(out,time):
             f.write("DTSTART;VALUE=DATE:{}\n".format(time.strftime("%Y%m%d")))
             f.write("DTEND;VALUE=DATE:{}\n".format((time+timedelta(days=1)).strftime("%Y%m%d")))
             #f.write("CREATED:{}T000001\n".format(time.strftime("%Y%m%d")))
-            f.write("SUMMARY:{}{}日,{},{}\n".format(tiangan_wenben[out[0]],dizhi_wenben[out[1]],tiangan_suhxing[out[0]],dizhi_suxing[out[1]]))
+            f.write("SUMMARY:{}{}日 {} {}\n".format(tiangan_wenben[out[0]],dizhi_wenben[out[1]],tiangan_suhxing[out[0]],dizhi_suxing[out[1]]))
             f.write("END:VEVENT\n\n")
 
 def main():
