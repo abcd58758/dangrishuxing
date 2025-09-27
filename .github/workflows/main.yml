@@ -26,3 +26,13 @@ jobs:
 
       - name: Run script
         run: python main.py
+
+      - name: Upload to Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: latest
+          name: "Latest Build"
+          files: shuxing.ics
+          overwrite: true   # 关键参数：覆盖同名文件
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
