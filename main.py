@@ -25,7 +25,7 @@ def shuxing(time):
 def ics_out(out,time):
         with open("shuxing.ics","a",encoding="utf-8") as f:
             f.write("BEGIN:VEVENT\n")
-            #f.write("UID:{}@frz114514\n".format(time.strftime("%Y%m%d")))
+            f.write("UID:{}@frz114514\n".format(time.strftime("%Y%m%d")))
             f.write("DTSTART;VALUE=DATE:{}\n".format(time.strftime("%Y%m%d")))
             f.write("DTEND;VALUE=DATE:{}\n".format((time+timedelta(days=1)).strftime("%Y%m%d")))
             #f.write("CREATED:{}T000001\n".format(time.strftime("%Y%m%d")))
