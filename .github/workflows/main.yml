@@ -1,0 +1,28 @@
+name: Run Python Script
+
+on:
+  schedule:
+    - cron: "0 0 * * *"   # 每天 UTC 0点运行一次
+  workflow_dispatch:       # 支持手动触发
+
+jobs:
+  run-script:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      - name: Install dependencies
+        run: |
+          if [ -f requirements.txt ]; then
+            pip install -r requirements.txt
+          fi
+
+      - name: Run script
+        run: python main.py
