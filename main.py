@@ -42,6 +42,6 @@ def main():
         current_date += timedelta(days=1)
     with open("shuxing.ics","a",encoding="utf-8") as f:
         f.write("END:VCALENDAR\n\n")
-
+    print("成功！")
 if __name__ == "__main__":
     main()
