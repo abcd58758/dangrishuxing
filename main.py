@@ -1,8 +1,8 @@
 from datetime import date,timedelta
 from os import remove
 
-tiangan = date(2025,1,5)
-dizhi = date(2025,1,7)
+tiangan = date(2024,12,26)
+dizhi = date(2024,12,26)
 tiangan_wenben = {0:"甲",1:"乙",2:"丙",3:"丁",4:"戊",5:"己",6:"庚",7:"辛",8:"壬",9:"癸"}
 tiangan_suhxing = {0:"阳木",1:"阴木",2:"阳火",3:"阴火",4:"阳土",5:"阴土",6:"阳金",7:"阴金",8:"阳水",9:"阴水"}
 dizhi_wenben = {0:"子",1:"丑",2:"寅",3:"卯",4:"辰",5:"巳",6:"午",7:"未",8:"申",9:"酉",10:"戌",11:"亥"}
@@ -29,12 +29,12 @@ def ics_out(out,time):
             f.write("DTSTART;VALUE=DATE:{}\n".format(time.strftime("%Y%m%d")))
             f.write("DTEND;VALUE=DATE:{}\n".format((time+timedelta(days=1)).strftime("%Y%m%d")))
             #f.write("CREATED:{}T000001\n".format(time.strftime("%Y%m%d")))
-            f.write("SUMMARY:{}{}日 {} {}\n".format(tiangan_wenben[out[0]],dizhi_wenben[out[1]],tiangan_suhxing[out[0]],dizhi_suxing[out[1]]))
+            f.write("SUMMARY:{}{}日,{},{}\n".format(tiangan_wenben[out[0]],dizhi_wenben[out[1]],tiangan_suhxing[out[0]],dizhi_suxing[out[1]]))
             f.write("END:VEVENT\n\n")
 
 def main():
-    start_date = date(date.today().year, 2, 1)
-    end_date = date(date.today().year+1, 1, 30)
+    start_date = date(date.today().year, 1, 1)
+    end_date = date(date.today().year, 12, 31)
     current_date = start_date
     while current_date <= end_date:
         out = (shuxing(current_date))
